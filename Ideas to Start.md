@@ -2,6 +2,9 @@ Creating a 6-hour Intro to Python course
 
 *I should create a cheat sheet that the kids can reference if needed*
 
+Some projects could include:
+- Text-based adventure game (final project)
+
 # Things to teach:
 
 ### Basics:
@@ -19,9 +22,28 @@ Creating a 6-hour Intro to Python course
 - store input in variables
 - use the variable in the scripts
 
-### BUILDING TIME (Insert project here)
-
 ### Booleans
 - Basics: True, False, what they mean
 - conditionals for math (<, >, ==, !=, >=, <=)
 - connectors (AND, OR, NOT)
+- if, elif, else statements
+
+### Lists
+- what they are and how they are used
+- common list functions (append, pop, len, indexing)
+- the "in" function --> creates a Boolean
+
+### For Loops
+- syntax
+- range function -- different formats (1 vs 2 vs 3 params)
+- usage of lists and the "in" format
+
+### While Loops
+- syntax
+
+### Functions
+- syntax, parameters
+- return
+- how to call them somewhere else
+
+**Next, think of some projects that they can do throughout the session and put them at the top of the file.
