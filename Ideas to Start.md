@@ -3,7 +3,10 @@ Creating a 6-hour Intro to Python course
 *I should create a cheat sheet that the kids can reference if needed*
 
 Some projects could include:
+- Mad Libs (for exercise after Inputs)
+- Rock-Paper-Scissors(-Lizard-Spock) (for exercise after Lists)
 - Text-based adventure game (final project)
+- Hangman (alternate, easier, and probably quicker final project)
 
 # Things to teach:
 
