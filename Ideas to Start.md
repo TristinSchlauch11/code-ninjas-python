@@ -1,4 +1,4 @@
-Creating a 6-hour Intro to Python course
+Creating a 6-hour Intro to Python course (appx. 3 hrs teaching, 2 hrs exercises, 1 hr "free" time)
 
 *I should create a cheat sheet that the kids can reference if needed*
 
@@ -48,5 +48,3 @@ Some projects could include:
 - syntax, parameters
 - return
 - how to call them somewhere else
-
-**Next, think of some projects that they can do throughout the session and put them at the top of the file.
