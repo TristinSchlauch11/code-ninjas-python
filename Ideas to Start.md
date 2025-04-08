@@ -49,3 +49,11 @@ Some projects could include:
 - syntax, parameters
 - return
 - how to call them somewhere else
+
+## Other Possible Ideas
+- Python Part 2: 
+    - Modulo, String methods
+    - Tuples, Sets, and Dictionaries
+    - Classes
+    - random and math module
+- Make the graphical Python programming module
