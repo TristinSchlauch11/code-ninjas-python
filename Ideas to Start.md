@@ -24,6 +24,7 @@ Some projects could include:
 ### Input
 - the input() function: can use it to get info from user to customize program behaviour
 - store input in variables
+- type conversions
 - use the variable in the scripts
 
 ### Booleans
