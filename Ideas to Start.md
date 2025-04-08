@@ -6,8 +6,8 @@ Some projects could include:
 - Mad Libs (for exercise after Inputs)
 - Rock-Paper-Scissors(-Lizard-Spock) (for exercise after Lists)
 - Hangman (final project) -- DONE
-- Advanced Calculator (final project 2)
-- Number Guesser (final project 3)
+- Advanced Calculator (final project 2) -- DONE
+- Number Guesser (final project 3) -- DONE
 
 # Things to teach:
 
