@@ -5,12 +5,13 @@ Creating a 6-hour Intro to Python course (appx. 3 hrs teaching, 2 hrs exercises,
 Some projects could include:
 - Mad Libs (for exercise after Inputs)
 - Rock-Paper-Scissors(-Lizard-Spock) (for exercise after Lists)
-- Text-based adventure game (final project)
-- Hangman (alternate, easier, and probably quicker final project)
+- Hangman (final project) -- DONE
+- Advanced Calculator (final project 2)
+- Number Guesser (final project 3)
 
 # Things to teach:
 
-### Basics:
+### Basics
 - print function
 - strings: concatenation, quotes in strings
 - integers: math operations (+, -, *, /), min, max, can print numbers
