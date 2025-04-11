@@ -19,6 +19,8 @@ while num_to_guess not in guesses:
     next_guess = int(input("Enter your next guess, or view all guesses by entering 0 >> "))
     if next_guess == 0:
         print_guesses()
+    elif next_guess < 0 or next_guess > 100:
+        print("Guess a number between 1 and 100!")
     else:
         guesses.append(next_guess)
         if next_guess == num_to_guess:
