@@ -22,6 +22,6 @@ while not finished:
         finished = True
     elif operation == "c":
         print("Restarting...")
-        answer = 0
+        answer = int(input("Enter the first number >> "))
     else:
         print("Invalid operation!")
