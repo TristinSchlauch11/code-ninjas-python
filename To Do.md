@@ -1,11 +1,11 @@
 # TO-DO LIST
 
-* Turn all the example Python files into guided project files that the kids can use as a template
+* Turn all the example Python files into guided project files that the kids can use as a template -- DONE
     * Mad Libs -- DONE
     * Rock-Paper-Scissors -- DONE
-    * Calculator
-    * Guesser
-    * Hangman
+    * Calculator -- DONE
+    * Guesser -- DONE
+    * Hangman -- DONE
 
 * Create presentation(s) to use while teaching the program
     * Basics
