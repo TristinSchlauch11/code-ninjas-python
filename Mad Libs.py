@@ -1,3 +1,8 @@
+# In this project, we will be creating a Mad Libs story that you can share with your friends! If you don't know, Mad
+# Libs are a story that has some words missing! You are asked to fill in the blanks with specific words or numbers,
+# then you will have a silly story! We are going to code a Mad Lib by asking the player to type in specific words, then
+# we'll print our story filled in with the words the player typed in onto the screen for the player to read!
+
 # Step 1:
 # [] Use a print statement to print a welcome message to the player.
 # Remember to put your message in "quotation marks"!

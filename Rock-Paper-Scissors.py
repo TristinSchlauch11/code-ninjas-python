@@ -1,3 +1,7 @@
+# In this project, we will be coding a Rock-Paper-Scissors game. First, we'll ask the user for their choice, then the computer
+# will randomly pick their choice. Then, we'll use if-statements to see if the player won, the computer won, or they tied!
+
+
 #### DO NOT CHANGE THIS CODE ####
 import random
 #################################
