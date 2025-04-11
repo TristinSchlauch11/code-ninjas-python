@@ -2,7 +2,7 @@
 
 * Turn all the example Python files into guided project files that the kids can use as a template
     * Mad Libs -- DONE
-    * Rock-Paper-Scissors
+    * Rock-Paper-Scissors -- DONE
     * Calculator
     * Guesser
     * Hangman
