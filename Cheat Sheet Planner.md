@@ -36,3 +36,10 @@
 - for loop (range)
 - for loop (lists)
 - while loop
+
+## Functions
+- function definition
+- function call
+- parameters
+- arguments
+- the return statement
