@@ -17,3 +17,22 @@
 - the input function
 - storing inputs in variables
 - string to integer conversion
+
+## Booleans
+- True and False
+- number comparisons (<, >, ==, !=, <=, >=)
+- connectors (and, or, not)
+- if-elif-else statements 
+
+## Lists
+- basic list structure
+- len
+- append
+- pop
+- indexing
+
+## Loops
+- range functions (1, 2, 3 params)
+- for loop (range)
+- for loop (lists)
+- while loop
