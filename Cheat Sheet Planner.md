@@ -1,22 +1,22 @@
 # To include on Cheat Sheet
 
 ## Basics:
-- what are strings
-- print function
-- string concatenation
-- what are integers
-- mathematical operations
-- min and max
-- integer to string conversion
+- what are strings -- DONE
+- print function -- DONE
+- string concatenation -- DONE
+- what are integers -- DONE
+- mathematical operations -- DONE
+- min and max -- DONE
+- integer to string conversion -- DONE
 
 ## Variables
-- assigning variables
-- using variables in computations, new variables, and updates
+- assigning variables -- DONE
+- using variables in computations, new variables, and updates -- DONE
 
 ## Inputs
-- the input function
-- storing inputs in variables
-- string to integer conversion
+- the input function -- DONE
+- storing inputs in variables -- DONE
+- string to integer conversion -- DONE
 
 ## Booleans
 - True and False
