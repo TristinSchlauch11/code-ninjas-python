@@ -23,4 +23,4 @@
 * Is there a chance that I can create a Jupyter notebook that I can use to provide examples while teaching?
     * If not, I can just build additional Python files that I can open throughout the course to provide these examples.
 
-* Create a cheat sheet that the kids can refer to
+* Create a cheat sheet that the kids can refer to -- DONE

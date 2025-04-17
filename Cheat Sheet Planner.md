@@ -19,27 +19,27 @@
 - string to integer conversion -- DONE
 
 ## Booleans
-- True and False
-- number comparisons (<, >, ==, !=, <=, >=)
-- connectors (and, or, not)
-- if-elif-else statements 
+- True and False -- DONE
+- number comparisons (<, >, ==, !=, <=, >=) -- DONE
+- connectors (and, or, not) -- DONE
+- if-elif-else statements -- DONE
 
 ## Lists
-- basic list structure
-- len
-- append
-- pop
-- indexing
+- basic list structure -- DONE
+- len -- DONE
+- append -- DONE
+- pop -- DONE
+- indexing -- DONE
 
 ## Loops
-- range functions (1, 2, 3 params)
-- for loop (range)
-- for loop (lists)
-- while loop
+- range functions (1, 2, 3 params) -- DONE
+- for loop (range) -- DONE
+- for loop (lists) -- DONE
+- while loop -- DONE
 
 ## Functions
-- function definition
-- function call
-- parameters
-- arguments
-- the return statement
+- function definition -- DONE
+- function call -- DONE
+- parameters -- DONE
+- arguments -- DONE
+- the return statement -- DONE
