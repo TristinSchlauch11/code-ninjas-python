@@ -85,4 +85,9 @@ Could do some sort of 'encoder' project here...
 
 
 ### Classes
-- classes --> will do later
+1. what is a class
+2. defining a class
+3. class attributes
+4. class methods (i.e. using class attributes)
+5. creating an object
+6. using class methods
