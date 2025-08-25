@@ -46,9 +46,6 @@
 #### Section 4: random Numbers
 - randint and choice -- done
 
-Could do some sort of 'encoder' project here...
-
-
 ### Lists
 
 #### Section 1: Adding, Removing, and Changing Elements
@@ -63,6 +60,7 @@ Could do some sort of 'encoder' project here...
 3. range with start, stop, step -- done
 4. range in a for loop -- done
 
+Yahtzee Project
 
 ### Dictionaries
 
@@ -83,6 +81,7 @@ Could do some sort of 'encoder' project here...
 2. if item in dict/dict.keys()/dict.values() -- done
 3. for item in dict/dict.keys()/dict.values() -- done
 
+Shopkeeper Project
 
 ### Classes
 1. what is a class -- done
@@ -91,3 +90,5 @@ Could do some sort of 'encoder' project here...
 4. class methods (i.e. using class attributes) -- done
 5. creating an object -- done
 6. using class methods -- done
+
+Dungeon Fighter Final Project
