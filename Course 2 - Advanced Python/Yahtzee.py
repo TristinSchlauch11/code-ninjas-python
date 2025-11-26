@@ -10,23 +10,26 @@
 # Step 1
 # First, since rolling the dice is a random event, we need to import the random module.
 # We'll also set up some variables that the rest of our program will use.
-# [] Import the random module
-# [] Assign a rolls_left variable to the number 3
-# [] Assign a kept_nums variable to an empty list
-
-
+# [O] Import the random module
+# [O] Assign a rolls_left variable to the number 3
+# [O] Assign a kept_nums variable to an empty list
+import random
+rolls_left = 3
+kept_nums = []
 
 # Step 2
 # Next, you're going to define a function called roll that will roll the dice and return a list of
 # the numbers that were rolled. This function will take 1 parameter: dice_to_roll, which is the
 # number of dice that need to be rolled.
-# [] Start by defining the dice function and giving it the dice_to_roll parameter
-# [] Next, define a variable called rolls to be an empty list
+# [O] Start by defining the dice function and giving it the dice_to_roll parameter
+# [O] Next, define a variable called rolls to be an empty list
 # [] Next, use a for loop to generate a random number between 1 and 6 for all the dice you need to roll
 #    Append each of these numbers to the rolls list
 # HINT: You will need to use a range function in the for loop
 # [] Finally, after all the rolls are done, return the rolls list
-
+def roll(dice_to_roll):
+    rolls = []
+    
 
 
 # Step 3

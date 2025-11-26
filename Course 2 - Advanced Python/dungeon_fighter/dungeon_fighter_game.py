@@ -8,7 +8,7 @@
 # Step 1
 # The monster will do random moves, so we'll need the random module
 # [] Import the random module
-
+import random
 
 # This is the class that will define the attributes and methods that our Hero will use
 class Player():
@@ -18,12 +18,14 @@ class Player():
         # health
         # [] Set hit_points to 200
         # [] Set max_hit_points to 200
-
+        self.hit_points = 200
+        self.max_hit_points = 200
 
         # magic
         # [] Set magic to 80
         # [] Set max_magic to 200
-
+        self.magic = 80
+        self.max_magic = 200
 
         # fighting stats
         self.damage = 30
@@ -99,28 +101,36 @@ class Player():
     # [] Set the Player's hit_points to the MINIMUM of:
     #       - adding the Player's healing attribute to their hit_points, and
     #       - the Player's max_hit_points attribute
-
+    def heal(self):
+        self.magic = self.magic - 70
+        self.hit_points = min(self.hit_points + self.healing, self.max_hit_points)
 
 
     # Next, you need a power_up method! This will make the Hero's next attack stronger!
     # [] Define a power_up method that uses only the self parameter
     # [] Decrease the Player's magic attribute by 50
     # [] Set the Player's powered_up attribute to True
-
+    def power_up(self):
+        self.magic = self.magic - 50
+        self.powered_up = True
 
 
     # Next, you need a defend method! This reduces the damage of the Monster's next attack
     # [] Define a defend method that uses only the self parameter
     # [] Decrease the Player's magic attribute by 50
     # [] Set the Player's defending attribute to True
-
+    def defend(self):
+        self.magic = self.magic - 50
+        self.defending = True
 
 
     # Next, we'll create a method that can stun the enemy!
     # [] Define a stun method that uses 2 parameters: self and enemy
     # [] Decrease the Player's magic attribute by 90
     # [] Call the enemy's get_stunned method
-
+    def stun(self, enemy):
+        self.magic = self.magic - 90
+        enemy.get_stunned()
 
 
     # This is a method that increases our Hero's magic
@@ -138,13 +148,18 @@ class Player():
     # This a function that will get called when the Monster curses our hero!
     # [] Define a get_cursed function that uses only the self parameter
     # [] Set the Player's cursed attribute to True
-
+    def get_cursed(self):
+        self.cursed = True
 
 
     # Finally, we need a method to check if our Hero was defeated!
     # [] Define a defeated function that uses only the self parameter
     # [] Return a Boolean that is True if the Player has 0 hit_points, and False otherwise
-
+    def defeated(self):
+        if self.hit_points == 0:
+            return True
+        else:
+            return False
 
 
 # Step 4
@@ -155,7 +170,7 @@ class Monster():
 
     # [] This __init__ method will make the monster harder to fight when the Monster's level gets higher!
     #    But, it doesn't work right! Can you fix it by adding a level parameter to the method?
-    def __init__(self):
+    def __init__(self, level):
         # health
         self.max_hit_points = 50 + 10 * level
         self.hit_points = 50 + 10 * level
@@ -198,9 +213,10 @@ class Monster():
     # [] Use the random module's choice function to randomly choose an action from the 'moves' list
     #    and assign it to a variable called 'action'
     # [] Return the action
-
-
-
+    def pick_move(self, hero):
+        moves = self.get_available_moves(hero)
+        action = random.choice(moves)
+        return action
 
     # This method lets the monster perform an action
     def do_action(self, action, hero):
@@ -236,7 +252,8 @@ class Monster():
     # Next, we need a method that can curse our Hero!
     # [] Define a curse function that uses 2 parameters: self and hero
     # [] Call the hero's get_cursed method
-
+    def curse(self, hero):
+        hero.get_cursed()
 
 
     # hero method effects
@@ -251,8 +268,9 @@ class Monster():
     # [] Define a get_stunned function that uses only the self parameter
     # [] Set the Monster's powered_up Boolean to False
     # [] Set the Monster's defending Boolean to False
-
-
+    def get_stunned(self):
+        self.powered_up = False
+        self.defending = False
 
 
     def defeated(self):

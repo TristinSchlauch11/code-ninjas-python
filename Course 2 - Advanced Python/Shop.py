@@ -6,14 +6,18 @@
 
 # Step 1
 # First, we need to define an initial dictionary that holds some of the prices of our items
-# [] Define a dictionary called prices that uses the store items (strings) as keys and their 
+# [O] Define a dictionary called prices that uses the store items (strings) as keys and their 
 #    prices (floats) as the value. Use at least 3 items.
-
+prices = {
+    "banana" : 2.30,
+    "milk" : 47.99,
+    "baseball" : 5.00
+    }
 
 
 # Step 2:
 # Now, you're going to define 4 functions that use the prices dictionary and change its contents
-# [] Define a function called print_all_items() that prints all items in the store.
+# [O] Define a function called print_all_items() that prints all items in the store.
 #    If you want, you can also print the prices of the items.
 # [] Define a function called add_item(new_item, price) that adds the new item to the store 
 #    with the given price. 
@@ -24,7 +28,27 @@
 # [] Define a function called remove_item(item) that removes the item from the store
 #    [] But, if the item is not a key in the prices dictionary, we should ignore this change 
 
+def print_all_items():
+    for item in prices:
+        print(item)
 
+def add_item(new_item, price):
+    if new_item in prices.keys():
+        print("Already have item")
+    else:
+        prices[new_item] = price
+
+def change_item(item, new_price):
+    if item not in prices:
+        print("We don't have that item!")
+    else:
+        prices[item] = new_price
+    
+def remove_item(item):
+    if item not in prices:
+        print("We don't have that item!")
+    else:
+        prices.pop(item)
 
 # Step 3:
 # Next, we're going to start creating the computer menus. The first one that we'll make is the 
