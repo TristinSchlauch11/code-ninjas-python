@@ -19,7 +19,9 @@ score = 0
 
 def draw():
     if game_over:
-        screen.fill((0,0,0))
+        screen.fill((100, 50, 255))
+        screen.draw.text("GAME OVER!", center = (WIDTH / 2, HEIGHT / 2 - 25), fontsize = 48)
+        screen.draw.text("Score: " + str(score), center = (WIDTH / 2, HEIGHT / 2 + 25), fontsize = 24)
     else:
         screen.fill((100, 50, 255))
         screen.draw.text("Score: " + str(score), midright = (WIDTH - 25, HEIGHT - 25))
@@ -46,7 +48,7 @@ def update():
         spaceship.x += 5
     if bullet_cooldown > 0:
         bullet_cooldown -= 1
-    elif keyboard.space:
+    elif keyboard.space and not game_over:
         bullet = Actor("laserred16")
         bullet.midtop = spaceship.midtop
         my_bullets.append(bullet)
@@ -83,6 +85,11 @@ def update():
 
     if spaceship.collidelist(enemy_bullets) != -1:
         game_over = True
+        my_bullets.clear()
+
+    if spaceship.collidelist(enemies) != -1:
+        game_over = True
+        my_bullets.clear()
 
 def create_enemy():
     enemy = Actor("enemyblue2")
