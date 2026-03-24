@@ -23,7 +23,7 @@ bg.bottomleft = (0, 600)
 player = Actor("player_block")
 player.bottomleft = (200, 450)
 
-# sprite lists
+# sprite coordinate lists
 square_coords = []
 plat_coords = []
 spike_coords = []
@@ -33,6 +33,11 @@ down_coords = []
 block_coords = []
 rocket_coords = []
 jumppad_coords = []
+
+# mass sprite lists
+platforms = []
+spikes = []
+mods = []
 
 file = open("encoded_tilemap.txt", "r")
 for i, line in enumerate(file.readlines()):
@@ -65,67 +70,48 @@ for i, line in enumerate(file.readlines()):
             jumppad_coords.append((j, i, True))
 file.close()
 
-# spike and platform sprites
-def create_obst(pos_list, image, can_land):
+def create_obst(pos_list, image, kind):
     for (col, row, upside_down) in pos_list:
         # create the sprite and set its position
         sprite = Actor(image)
-        sprite.left = 700 + 45*col
+        sprite.left = 790 + 45*col
         if not upside_down:
             sprite.bottom = 135 + 45*row
         else:
             sprite.angle = 180
             sprite.top = 90 + 45*row
-        # add it to the neccesary lists
-        all_obst.append(sprite)
-        if can_land:
+        # add it to the necessary list
+        if kind == "plat":
             platforms.append(sprite)
+        elif kind == "spike":
+            spikes.append(sprite)
+        elif kind == "mod":
+            mods.append(sprite)
 
-# ring and jumppad sprites
-def create_mod(pos_list, image):
-    for (col, row, upside_down) in pos_list:
-        # create the sprite and set its position
-        sprite = Actor(image)
-        sprite.left = 700 + 45*col
-        if not upside_down:
-            sprite.bottom = 135 + 45*row
-        else:
-            sprite.angle = 180
-            sprite.top = 90 + 45*row
-        # add it to the neccesary lists
-        mods.append(sprite)
-
-# mass sprite lists
-platforms = []
-all_obst = []
-mods = []
-
-# create all other sprites
-create_obst(square_coords, "block", True)
-create_obst(plat_coords, "platform", True)
-create_obst(spike_coords, "spike", False)
-create_obst(short_spike_coords, "short_spike", False)
-create_mod(up_coords, "up_ring")
-create_mod(down_coords, "down_ring")
-create_mod(rocket_coords, "rocket_ring")
-create_mod(block_coords, "block_ring")
-create_mod(jumppad_coords, "jump_pad")
+# create all sprites
+create_obst(square_coords, "block", "plat")
+create_obst(plat_coords, "platform", "plat")
+create_obst(spike_coords, "spike", "spike")
+create_obst(short_spike_coords, "short_spike", "spike")
+create_obst(up_coords, "up_ring", "mod")
+create_obst(down_coords, "down_ring", "mod")
+create_obst(rocket_coords, "rocket_ring", "mod")
+create_obst(block_coords, "block_ring", "mod")
+create_obst(jumppad_coords, "jump_pad", "mod")
 
 def draw():
     bg.draw()
     if won:
         screen.draw.text("YOU WIN", center = (screen.width / 2, screen.height / 2), fontsize = 72, color = (255, 255, 255))
-
     else:
         if not crashed:
             player.draw()
-
-        for obst in all_obst:
-            obst.draw()
-
+        for plat in platforms:
+            plat.draw()
+        for spike in spikes:
+            spike.draw()
         for mod in mods:
             mod.draw()
-
         screen.draw.text("Attempt " + str(attempt), midleft = (800 - x_offset, 100), fontsize = 64, color = (255, 255, 255))
 
 def update():
@@ -156,7 +142,6 @@ def update():
         velocity = 0
         on_ground = True
 
-
     # check if player has collided with roof
     if player.top < 0:
         # if as rocket
@@ -167,29 +152,29 @@ def update():
         if gravity == -1:
             crash()
 
-    # check for collision with obstacles
-    o_index = player.collidelist(all_obst)
-    if o_index != -1:
-        obstacle = all_obst[o_index]
-        # check if we hit a spike
-        if obstacle not in platforms:
+    # check for collision with platforms
+    plat_index = player.collidelist(platforms)
+    if plat_index != -1:
+        plat = platforms[plat_index]
+        # check if we ran into the platform
+        if player.right < plat.left + 15:
             crash()
+        # check if we have landed on the platform
+        elif gravity == 1 and player.bottom < plat.top + 25:
+            player.bottom = plat.top
+            velocity = 0
+            on_ground = True
+        elif gravity == -1 and player.top > plat.bottom - 25:
+            player.top = plat.bottom
+            velocity = 0
+            on_ground = True
+        # we hit the platform in some other way
         else:
-            # check if we ran into a platform
-            if player.right < obstacle.left + 15:
-                crash()
-            # check if we have landed on a platform
-            elif gravity == 1 and player.bottom < obstacle.top + 25:
-                player.bottom = obstacle.top
-                velocity = 0
-                on_ground = True
-            elif gravity == -1 and player.top > obstacle.bottom - 25:
-                player.top = obstacle.bottom
-                velocity = 0
-                on_ground = True
-            # we hit the platform in some other way
-            else:
-                crash()
+            crash()
+
+    # check for collisions with spikes
+    if player.collidelist(spikes) != -1:
+        crash()
 
     # check for collision with mods
     mod_index = player.collidelist(mods)
@@ -197,11 +182,13 @@ def update():
         mod = mods[mod_index]
         pass_mod(mod)
 
-    # move all other stuff
+    # move all objects
     if not crashed:
         x_offset += 10
-        for obst in all_obst:
-            obst.x -= 10
+        for plat in platforms:
+            plat.x -= 10
+        for spike in spikes:
+            spike.x -= 10
         for mod in mods:
             mod.x -= 10
 
@@ -221,7 +208,7 @@ def on_mouse_up(button):
 
 def on_key_down(key):
     if key == keys.RETURN:
-        reset_all_obst()
+        reset()
 
 def pass_mod(mod):
     global gravity
@@ -248,9 +235,9 @@ def crash():
 
     if not crashed:
         crashed = True
-        clock.schedule_unique(reset_all_obst, 2.0)
+        clock.schedule_unique(reset, 2.0)
 
-def reset_all_obst():
+def reset():
     global attempt
     global crashed
     global x_offset
@@ -262,8 +249,10 @@ def reset_all_obst():
     crashed = False
 
     # reset all obstacles
-    for obst in all_obst:
-        obst.x += x_offset
+    for plat in platforms:
+        plat.x += x_offset
+    for spike in spikes:
+        spike.x += x_offset
     for mod in mods:
         mod.x += x_offset
 
